@@ -1,0 +1,33 @@
+/* Add the psuedo classes to the universal element to attain expected behaviour */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* Its a better practice to inherit the box-sizing from the parent class. */
+  box-sizing: inherit;
+}
+html {
+  /* Its a bad practice to hardcode default font-size as it disables zoom-ins. So we set a percentage */
+  font-size: 62.5%;
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+  @include respond(phone) {
+    width: 100vw;
+  }
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}

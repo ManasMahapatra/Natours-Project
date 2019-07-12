@@ -1,0 +1,38 @@
+//HEADER------------>
+.header {
+  position: relative;
+  height: 95vh;
+  /* Linear gradient takes direction, starting and ending color as arguments respectively */
+  background-image: linear-gradient(to right bottom,rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)),url(../img/hero.jpg);
+  background-size: cover;
+  /* This make sures that the mentioned position stays visible even when the screen size is changed */
+  background-position: top;
+  /* Doesn't work with Safari */
+  -webkit-clip-path: polygon(0 0,100% 0,100% 75vh, 0 100%);
+  clip-path: polygon(0 0,100% 0,100% 75vh, 0 100%);
+  @include respond(tab-port) {
+    clip-path: polygon(0 0,100% 0,100% 80vh, 0 100%);
+  }
+  @include respond(phone) {
+    clip-path: polygon(0 0,100% 0,100% 85vh, 0 100%);
+  }
+  &__logo-box {
+    position: absolute;
+    /* the top,left and other positioning element start to ocunt from the parent relative class */
+    top: 3rem;
+    left: 3rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* transform relates to the current element, not to parent, which means 50% of elements height and width */
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}

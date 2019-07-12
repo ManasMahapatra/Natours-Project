@@ -1,0 +1,92 @@
+//BUTTON---------->
+.btn {
+  &,
+  &:link,
+  &:visited {
+    /* anchor element is inline, by default, chnging it to block will be unnecessary. Giving it inlione block will give enough spacking to the element */
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
+    /* This is the straightforward way to animate basic movements, and needs to be added to the initial state. */
+    transition: all .2s;
+    position: relative;
+    //Change for button elements
+    border: none;
+    cursor: pointer;
+  }
+  &:hover{
+    transform: translateY(-0.3rem);
+    /* Box takes up parameters along X-axis Y-axis blur intensity and color */
+    box-shadow: 0 1rem 1.5rem rgba($color-black,0.2);
+    &::after {
+      /* Scale changes the increases the size by that much times */
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+  &:active,
+  &:focus{
+    outline: none;
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 0.5rem rgba($color-black,0.2)
+  }
+  &--white {
+    background-color: $color-white;
+    color: $color-black;
+    &::after {
+      background-color: $color-white;
+    }
+  }
+  &--green {
+    background-color: $color-primary-dark;
+    color: $color-white;
+    &::after {
+      background-color: $color-primary-dark;
+    }
+  }
+  /* Property wise after psuedo class behaves like a child element. It needs to be given the property of content */
+  /* This appears right next to the real ement */
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+  }
+  &--animated {
+    animation: moveInButton 1s ease-out 0.75s;
+    /* apply the styles of 0% before animation starts */
+    animation-fill-mode: backwards;
+
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary;
+    padding: 3px;
+    transition: all .2s;
+  }
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.15);
+    transform: translateY(-2px);
+  }
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15);
+    transform: translateY(-1px);
+  }
+}
