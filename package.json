@@ -4,15 +4,20 @@
   "description": "Landing Page for Natours",
   "main": "index.js",
   "scripts": {
-    "watch:sass":"node-sass sass/main.scss css/style.css -w",
-    "compile:sass":"node-sass sass/main.scss css/style.comp.css",
-    "concat:css":"concat -o css/style.concat.css css/icon-fonts.css css/style.comp.css",
-    "prefix:css":"postcss --use autoprefixer -b 'last 10 versions' css/style.concat.css -o css/style.prefix.css",
-    "compress:css":"node-sass --include-path css css/style.prefix.css css/style.css --ouptut-style compressed"
+    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+    "concat:css": "concat -o css/style.concat.css css/icon-fonts.css css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.concat.css -o css/style.prefix.css",
+    "compress:css": "node-sass --include-path css css/style.prefix.css css/style.css --ouptut-style compressed"
   },
   "author": "zed009",
   "license": "ISC",
   "dependencies": {
     "node-sass": "^4.12.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "concat": "^1.0.3",
+    "postcss-cli": "^6.1.3"
   }
 }
